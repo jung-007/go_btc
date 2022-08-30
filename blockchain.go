@@ -122,7 +122,7 @@ Work:
 
 		for outIdx, out := range tx.Vout {
 			if out.CanBeUnlockedWith(address) && accumulated < amount {
-				accumulated += out.value
+				accumulated += out.Value
 				unspentOutputs[txID] = append(unspentOutputs[txID], outIdx)
 
 				if accumulated >= amount {
@@ -220,6 +220,7 @@ func CreateBlockchain(address string) *Blockchain {
 		tip = genesis.Hash
 		return nil
 	})
+
 	if err != nil {
 		log.Panic(err)
 	}

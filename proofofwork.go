@@ -12,7 +12,7 @@ var (
 	maxNonce = math.MaxInt64
 )
 
-const targetBits = 24
+const targetBits = 10
 
 type ProofOfWork struct {
 	block  *Block
@@ -42,8 +42,7 @@ func (pow *ProofOfWork) prepareData(nonce int) []byte {
 func (pow *ProofOfWork) Run() (int, []byte) {
 	var hashInt big.Int
 	var hash [32]byte
-	//nonce := 0
-	nonce := 57020538
+	nonce := 982
 	fmt.Printf("Mining a new block")
 
 	for nonce < maxNonce {

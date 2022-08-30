@@ -23,7 +23,7 @@ func (cli *CLI) getBalance(address string) {
 	UTXOs := bc.FindUTXO(address)
 
 	for _, out := range UTXOs {
-		balance += out.value
+		balance += out.Value
 	}
 	fmt.Printf("Balance of '%s': %d\n", address, balance)
 }
@@ -82,8 +82,8 @@ func (cli *CLI) Run() {
 	getBalanceAddress := getBalanceCmd.String("address", "", "The address to get balance for")
 	createBlockchainAddress := createBlockchainCmd.String("address", "", "The address to send genesis block reward to")
 	sendFrom := sendCmd.String("from", "", "Source wallet address")
-	sendTo := getBalanceCmd.String("to", "", "Destination wallet address")
-	sendAmount := getBalanceCmd.Int("amount", 0, "Amount to send")
+	sendTo := sendCmd.String("to", "", "Destination wallet address")
+	sendAmount := sendCmd.Int("amount", 0, "Amount to send")
 
 	switch os.Args[1] {
 	case "getbalance":

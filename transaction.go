@@ -42,7 +42,7 @@ type TXInput struct {
 }
 
 type TXOutput struct {
-	value        int
+	Value        int
 	ScriptPubKey string
 }
 
